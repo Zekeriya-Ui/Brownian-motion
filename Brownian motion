@@ -1,0 +1,45 @@
+``R
+
+# Function to simulate Brownian motion https://kapitals-pi.blogspot.com/2024/02/calculus-is-branch-of-mathematics-that.html
+
+simulate_brownian_motion <- function(n_steps, dt) {
+
+  # Generate standard normal random increments
+
+  dW <- rnorm(n_steps, mean = 0, sd = sqrt(dt))
+
+  
+
+  # Compute the cumulative sum to get Brownian motion
+
+  W <- cumsum(dW)
+
+  
+
+  # Prepend zero to the Brownian motion to ensure it starts at zero
+
+  return(c(0, W))
+
+}
+
+
+
+# Parameters
+
+n_steps <- 1000  # Number of steps
+
+dt <- 1          # Time step size
+
+
+
+# Simulate Brownian motion
+
+brownian_motion <- simulate_brownian_motion(n_steps, dt)
+
+
+
+# Plot Brownian motion
+
+plot(brownian_motion, type = "l", xlab = "Time", ylab = "Position", main = "Simulated Brownian Motion")
+
+```
